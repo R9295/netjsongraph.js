@@ -1,6 +1,5 @@
 import { LatLngExpression } from "leaflet";
 
-
 export type NetJSONGraphConfigType = {
   element: HTMLElement | string | undefined;
   type?: "graph" | "map";
@@ -8,6 +7,7 @@ export type NetJSONGraphConfigType = {
     tileProvider: string;
     center: LatLngExpression;
     zoom: number;
+    maxZoom?: number;
   };
 };
 
