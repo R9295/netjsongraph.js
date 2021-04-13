@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+      body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #example {
+        width: 100%;
+        height: 100%;
+      }
+
+    </style>
     <title>netjsongraph.js: basic example</title>
     <meta charset="utf-8">
     <!-- theme can be easily customized via css -->
-    <link href="../src/css/netjsongraph-theme.css" rel="stylesheet">
-    <link href="../src/css/netjsongraph.css" rel="stylesheet">
+    <link href="http://localhost:5000/src/css/netjsongraph-theme.css" rel="stylesheet">
+    <link href="http://localhost:5000/src/css/netjsongraph.css" rel="stylesheet">
+    <link href="http://localhost:5000/node_modules/leaflet/dist/leaflet.css" rel="stylesheet">
 </head>
 <body>
-    <script type="text/javascript" src="../dist/netjsongraph.min.js"></script>
-    <script type="text/javascript">
-        const graph = new NetJSONGraph("./data/netjsonmap.json", {
-            render: "graph",
+    <div id="example"></div>
+    <script src="http://localhost:5000/dist/netjsongraph.js"></script>
+    <script>
+        const graph = new NetJSONGraph("http://localhost:5000/examples/data/netjsonmap.json", {
+            element: "example",
+            render: "map",
+            mapOptions: {
+              tileProvider: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              center: [47, 21],
+              zoom: 10,
+            }
         });
-
         graph.render();
     </script>
 </html>

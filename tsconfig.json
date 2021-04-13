@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "target": "es2015",
+    "module": "es2015",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "lib": ["es2017", "es2015", "es6", "es7", "es5", "dom"],
+    "allowJs": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "composite": true,
+    "importHelpers": true,
+    "types": ["leaflet"],
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["./src/**/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

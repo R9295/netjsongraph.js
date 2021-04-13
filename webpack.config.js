@@ -1,21 +1,36 @@
-const path = require('path');
+const path = require("path");
 
-module.exports = (env, argv) => ({
-  entry: './src/js/netjsongraph.js',
+module.exports = {
+  mode: "production",
+  entry: "./src/index.ts",
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'netjsongraph.min.js'
+    path: path.resolve(__dirname, "dist"),
+    filename: "netjsongraph.js",
+    libraryTarget: "umd",
+    library: "NetJSONGraph",
+    libraryExport: "default"
   },
-
+  cache: {
+    type: "filesystem",
+    cacheDirectory: path.resolve(__dirname, ".webpack_cache")
+  },
+  resolve: {
+    extensions: [".ts", ".js"]
+  },
   devServer: {
     contentBase: "./",
     historyApiFallback: true,
-    inline: true, 
+    inline: true,
     open: true,
-    openPage: './examples/netjsongraph.html'
+    openPage: "./examples/netjsongraph.html"
   },
-
-  performance: {
-    hints: false
+  module: {
+    rules: [
+      {
+        test: /\.ts/,
+        use: "ts-loader",
+        exclude: /node_modules/
+      }
+    ]
   }
-})
+};

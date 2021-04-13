@@ -20,3 +20,5 @@ yarn.lock
 # Folder
 coverage
 dist
+.webpack_cache
+README.md
